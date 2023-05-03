@@ -19,24 +19,29 @@ def getExchange():
     dataget = request.get_json()
     
     dataAmount = dataget["amount"] 
-    dataFrom = dataget["from"]
-    dataTo = dataget["to"]
+    baseCode = dataget["from"]
+    targetCode = dataget["to"]
     
     # Where 'dataFrom' is the base currency
-    url = urlExchangeRate + apiKey + '/latest/'+dataFrom
+    url = urlExchangeRate + apiKey + '/pair/'+baseCode + '/' + targetCode + '/' + dataAmount
     response = requests.get(url)
     data = response.json()
     
-    strFrom = 1 / float(data["conversion_rates"][dataTo]) 
-    strTo = float(data["conversion_rates"][dataTo]) 
-    final = float(dataAmount) * float(strTo)
+    #conversion_rate
+    #conversion_result
+    #strFrom = 1 / float(data["conversion_rates"][dataTo]) 
+    #strTo = float(data["conversion_rates"][dataTo]) 
+    #final = float(dataAmount) * float(strTo)
 
+    final = data["conversion_result"]
     #Return JSON response
     result = {}
-    result['rateFrom'] = "1 "+dataFrom+" = "+ str(strTo)
-    result['rateTo'] = "1 "+dataTo+" = "+ str(strFrom)
-    result['result'] = str(final)+ " "+ dataTo 
-
+    #result['rateFrom'] = "1 "+dataFrom+" = "+ str(strTo)
+    #result['rateTo'] = "1 "+dataTo+" = "+ str(strFrom)
+    #result['result'] = str(final)+ " "+ dataTo 
+    result['rateFrom'] = ""
+    result['rateTo'] = data["conversion_rate"]
+    result['result'] = data["conversion_result"]
     response = app.response_class(
         response=json.dumps(result),
         mimetype='application/json'
