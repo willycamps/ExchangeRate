@@ -97,7 +97,16 @@ function dynamicDropdownList(codes){
 
               jsonObj = JSON.stringify(response);
               dynamicDropdownList(jsonObj);
+            },
+            failure: function (response) {
+              alert("Failure getting the Codes: ");
+        
+            },
+            error: function (response) {
+              alert("Error getting the Codes: ");
+        
             }
+
           });
  })();
 
