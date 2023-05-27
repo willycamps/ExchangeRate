@@ -33,7 +33,7 @@ def getExchange():
     #strTo = float(data["conversion_rates"][dataTo]) 
     #final = float(dataAmount) * float(strTo)
 
-    final = data["conversion_result"]
+    #final = data["conversion_result"]
     #Return JSON response
     result = {}
     #result['rateFrom'] = "1 "+dataFrom+" = "+ str(strTo)

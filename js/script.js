@@ -14,6 +14,11 @@ function getExchange(){
   var selFrom = getValueSelected("selFrom");
   var selTo = getValueSelected("selTo");
   var amount = document.getElementById("inpAmount");
+  var numNum = +amount.value;
+  if (isNaN(numNum))
+      alert("Amount is not a number, please check it !");
+  else
+  {
 
   $.ajax({
     url: 'http://localhost:5000/getExchange',
@@ -51,6 +56,8 @@ function getExchange(){
     }
     
   });
+
+  }
 
 
 }
