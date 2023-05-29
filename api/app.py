@@ -27,13 +27,6 @@ def getExchange():
     response = requests.get(url)
     data = response.json()
     
-    #conversion_rate
-    #conversion_result
-    #strFrom = 1 / float(data["conversion_rates"][dataTo]) 
-    #strTo = float(data["conversion_rates"][dataTo]) 
-    #final = float(dataAmount) * float(strTo)
-
-    #final = data["conversion_result"]
     #Return JSON response
     result = {}
     #result['rateFrom'] = "1 "+dataFrom+" = "+ str(strTo)
