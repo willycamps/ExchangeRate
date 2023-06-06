@@ -1,4 +1,5 @@
 import pytest
+import json
 from app import app
 
 
@@ -15,9 +16,7 @@ def test_getcodes(client):
    
     
 def test_getexchange(client):
-    response = client.post("/getExchange", data={
-        "amount": "100",
-        "from": "EUR",
-        "to": "USD",
-    })
+    response = client.post(
+    '/getExchange', data=json.dumps({'amount': '100', 'from': 'EUR', 'to': 'USD'}),
+    headers={"Content-Type": "application/json"})
     assert response.status_code == 201

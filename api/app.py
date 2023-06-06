@@ -4,9 +4,11 @@ from flask import request, escape
 import requests
 import json
 
-#URL & ApiKey variables
+#URL & ApiKey variables for exchangerate
 urlExchangeRate = 'https://v6.exchangerate-api.com/v6/'
 apiKey = '5578f53e5dfd610b97368d18/'
+
+
 
 #name APIflask
 app = APIFlask(__name__) 
@@ -40,7 +42,6 @@ def getExchange():
 
 
 @app.route('/getCodes')
-# Enable CORS in flask
 @cross_origin()
 def getCodes():
     # Get the currency codes
