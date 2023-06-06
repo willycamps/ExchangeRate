@@ -25,7 +25,9 @@ def getExchange():
     targetCode = dataget["to"]
     
     # Where 'dataFrom' is the base currency
-    url = urlExchangeRate + apiKey + '/pair/'+baseCode + '/' + targetCode + '/' + dataAmount
+    url = urlExchangeRate + apiKey + 'pair/'+baseCode + '/' + targetCode + '/' + dataAmount
+
+    
     response = requests.get(url)
     data = response.json()
     
