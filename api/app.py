@@ -40,7 +40,7 @@ def getExchange():
         response=json.dumps(result),
         mimetype='application/json'
     )
-    return response, 201
+    return response, 200
 
 
 @app.route('/getCodes')
@@ -50,7 +50,7 @@ def getCodes():
     url = urlExchangeRate + apiKey + 'codes'
     response = requests.get(url)
     data = response.json()
-    return data, 201
+    return data, 200
 
 
 if __name__ == "__main__":

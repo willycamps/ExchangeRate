@@ -12,11 +12,12 @@ def client():
 
 def test_getcodes(client):
     resp = client.get('/getCodes')
-    assert resp.status_code == 201
+    assert resp.status_code == 200
    
     
 def test_getexchange(client):
     response = client.post(
     '/getExchange', data=json.dumps({'amount': '100', 'from': 'EUR', 'to': 'USD'}),
     headers={"Content-Type": "application/json"})
-    assert response.status_code == 201
+    assert response.status_code == 200
+
